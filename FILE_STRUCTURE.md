@@ -13,7 +13,7 @@ working/
 ├── capture.py                   # Capture data structure
 ├── requirements.txt             # Python dependencies
 ├── README.md                    # Usage instructions
-├── firmware_custom_pins.ino     # STM32 firmware
+├── LA8_DMA.ino                  # STM32 firmware
 └── gui/                         # GUI components
     ├── main_window.py           # Main application window
     ├── waveform_view.py         # Waveform display
@@ -94,4 +94,5 @@ Output: `dist/STM32_Logic_Analyzer.exe`
 ✅ Ready to run
 ✅ Ready to build executable
 ✅ Ready to distribute
+
 
