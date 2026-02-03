@@ -43,7 +43,7 @@ working/
 - `requirements.txt` - Dependencies
 
 ### Firmware (1 file):
-- `firmware_custom_pins.ino` - STM32 code
+- `LA8_DMA.ino` - STM32 code
 
 ## Quick Start
 
@@ -94,3 +94,4 @@ Output: `dist/STM32_Logic_Analyzer.exe`
 ✅ Ready to run
 ✅ Ready to build executable
 ✅ Ready to distribute
+
