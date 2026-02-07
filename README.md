@@ -79,7 +79,10 @@ python software/main.py
 
 ## 📸 Screenshots
 
-*(Add your screenshots here)*
+![COM Ports](assets/1.png)
+![Available Sample Rates](assets/2.png)
+![Single Capture](assets/3.png)
+![Live Capture](assets/4.png)
 
 ---
 
@@ -88,3 +91,4 @@ Contributions are welcome! Please read the [implementation plan](docs/technical_
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
