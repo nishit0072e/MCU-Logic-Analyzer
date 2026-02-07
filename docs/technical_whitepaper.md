@@ -1,8 +1,8 @@
 # Engineering Whitepaper: High-Performance Logic Analyzer Architecture
 
-**Version**: 2.0  
+**Version**: 4.0  
 **Date**: 2026-02-07  
-**Author**: Engineering Team  
+**Author**: Nishit Bayen & Google Gemini
 
 ---
 
@@ -101,3 +101,4 @@ The `Device` class implements a **Facade Pattern**, abstracting the complexities
 ## 6. Conclusion
 
 The architecture represents a robust implementation of **Hard Real-Time constraints** on the edge (STM32) paired with **Soft Real-Time visualization** on the host. By leveraging hardware offloading (DMA) and GPU acceleration (OpenGL), we achieve professional-grade timing accuracy and user experience on commodity hardware.
+
