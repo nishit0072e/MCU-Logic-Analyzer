@@ -1,8 +1,0 @@
-- STM32F103C6Tx MCU features DMA
-- PORT_A of GPIO Bank is Utilized (PA0 - PA7)
-- 2KB Smapling Buffer
-- Arduino Framework (HAL Based)
-- Python Qt5 Based GUI
-- Real time Capture of Data
-- When Bit samples fill the sample buffer, the DMA parse the samples to PC via UART
-- Because of UART, GUI feels little Laggy
