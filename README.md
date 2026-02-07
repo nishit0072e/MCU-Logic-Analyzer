@@ -40,6 +40,23 @@ The system uses a distributed architecture to overcome the bandwidth limitations
 👉 **[Read the Engineering Whitepaper](docs/technical_whitepaper.md)** for a deep dive into the DMA engine and design trade-offs.
 
 ---
+## 📂 File Structure
+```text
+/
+├── firmware/
+│   └── stm32_logic_analyzer.ino                        # Arduino Sketch for STM32
+|   └── stm32_loc_analyzer.ino.GENERIC_F103C6TX.bin     # Readymade firmware reeady to upload
+├── software/
+│   ├── gui/                                            # PyQt5 GUI Components
+│   ├── capture.py                                      # Data decoding logic
+│   ├── device.py                                       # Serial hardware driver
+│   └── main.py                                         # Application Entry Point
+├── docs/
+│   ├── technical_whitepaper.md                         # Engineering Details
+│   └── build_instructions_linux.md
+└── assets/                                             # Images and Icons
+```
+---
 
 ## 🚀 Getting Started
 
@@ -54,15 +71,37 @@ You need an **STM32F103C8T6** ("Blue Pill") or similar board and a USB-to-TTL Se
 *   **Power**: 3.3V or 5V (Common Ground is critical!).
 
 ### 2. Flashing Firmware
-1.  Open `firmware/stm32_logic_analyzer.ino` in Arduino IDE.
-2.  Select board: **Generic STM32F103C series**.
-3.  Flash via ST-Link or Serial.
+**Step 1: Install STM32 Board Support**
+1.  Open Arduino IDE Preferences.
+2.  Add this URL to "Additional Boards Manager URLs":
+    `https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json`
+3.  Go to **Tools > Board > Boards Manager**, search for "STM32", and install **"STM32 MCU based boards"** by STMicroelectronics.
+
+**Step 2: Board Configuration**
+Select **Tools > Board > STM32F1 series > Generic STM32F1 series** and apply these settings:
+
+| Setting | Value |
+| :--- | :--- |
+| **Board Part Number** | `Generic F103C6Tx` (or `C8Tx` depending on your board) |
+| **U(S)ART Support** | **Enabled (no generic 'Serial')** |
+| **USB Support** | **None** |
+| **Optimize** | Smallest (-Os default) |
+| **C Runtime Library** | Newlib Nano (default) |
+| **Upload Method** | **STM32CubeProgrammer (Serial)** |
+
+**Step 3: Flash**
+1.  Compile `firmware/stm32_logic_analyzer.ino` & export the compiled Binary from the sketch tab or ```ctrl + Alt + S``` (Skip this step if Opting for readymade firmware).
+2.  Download & Install STM32CubeProgrammer from ST Microelectronics Website.
+3.  set the STM32 "BOOT0" jumper to **1**, press the Reset button then Select UART and Baud Rate to 115200.
+4.  Connect your USB-TTL adapter (A9->RX, A10->TX).
+5.  Press Reset on the board, then select the preferred Binary from the Proper Location & click **Upload**.
+6.  After upload, set "BOOT0" back to **0** and press Reset.
 
 ### 3. Running the Software
 
 **Option A: Standalone Executable (Windows)**
 *   Download the latest release.
-*   Run `STM32_Logic_Analyzer.exe`.
+*   Run `STM32_Logic_Analyzer.exe` (Not Ready Yet, If anybody can do it, Please Open a Pull Request).
 
 **Option B: Python Source**
 ```bash
@@ -91,4 +130,5 @@ Contributions are welcome! Please read the [implementation plan](docs/technical_
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
